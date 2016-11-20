@@ -4,7 +4,8 @@ var options = {
   w: 480,
   h: 480,
   rot: 180,
-  output: "bingo.jpg"
+  q: 100,
+  output: "shot.jpg"
 }
 var photo = new RaspiCam(options);
 //to take a snapshot, start a timelapse or video recording
