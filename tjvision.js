@@ -7,6 +7,12 @@ var options = {
   q: 100,
   output: "shot.jpg"
 }
-var photo = new RaspiCam(options);
+var camera = new RaspiCam(options);
 //to take a snapshot, start a timelapse or video recording
-photo.start();
+camera.start();
+
+//listen for the "read" event triggered when each new photo/video is saved
+camera.on("read", function(err, filename){
+	//do stuff
+	console.log("image saved")
+});
