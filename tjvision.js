@@ -50,7 +50,7 @@ function processImage(imagefile){
     if (err){
       console.log(err);
     } else {
-      console.log(JSON.stringify(res, null, 2));
+      console.log("================\n",JSON.stringify(res, null, 2));
     }
   });
 
