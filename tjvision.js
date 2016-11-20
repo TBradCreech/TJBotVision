@@ -1,8 +1,8 @@
 var RaspiCam = require("raspicam");
 var options = {
   mode: "photo",
-  w: 480,
-  h: 480,
+  w: 1920,
+  h: 1080,
   rot: 180,
   q: 100,
   output: "shot.jpg"
