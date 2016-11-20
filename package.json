@@ -5,7 +5,8 @@
   "main": "tjvision.js",
   "dependencies": {
     "npm": "^4.0.2",
-    "raspicam": "^0.2.13"
+    "raspicam": "^0.2.13",
+    "watson-developer-cloud": "^2.9.0"
   },
   "devDependencies": {},
   "scripts": {
