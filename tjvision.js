@@ -98,6 +98,7 @@ var text_to_speech = watson.text_to_speech({
   version: 'v1'
 });
 
+speak("filepath .. I am kinda trying to test the speaking capability within this code")
 function speak(textstring){
   var params = {
     text: textstring,
@@ -111,5 +112,15 @@ function speak(textstring){
     music.on('complete', function () {
       console.log('Done with playback!');
     });
+  });
+}
+
+
+function deleteFile(filepath) {
+  fs.unlink(filepath, function(err) {
+    if (err) {
+       return console.error(err);
+    }
+    console.log(filepath + ' has been deleted.');
   });
 }
