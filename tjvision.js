@@ -33,7 +33,7 @@ camera.start();
 camera.on("read", function(err, filename){
   //do stuff
   console.log("image saved")
-  //processImage("shot.jpg")
+  processImage("shot.jpg")
 });
 
 /**
