@@ -8,7 +8,7 @@ var watson = require('watson-developer-cloud');
 var fs = require('fs');
 var RaspiCam = require("raspicam");
 var config = require("./config");
-var childprocess = require('child_process');
+var child_process = require('child_process');
 
 var visual_recognition = new VisualRecognitionV3({
   api_key: config.VisionKey,
