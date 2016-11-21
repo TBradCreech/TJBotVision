@@ -33,25 +33,25 @@ camera.start();
 camera.on("read", function(err, filename){
   //do stuff
   console.log("image saved")
-  processImage("shot.jpg")
+  //processImage("shot.jpg")
 });
 
-/**
- * [processImage send the given image file to Watson Vision Recognition for Analysis]
- * @param  {[type]} imagefile [description]
- * @return {[type]}           [description]
- */
-function processImage(imagefile){
-  var params = {
-    images_file: fs.createReadStream(imagefile)
-  };
-
-  visual_recognition.classify(params, function(err, res) {
-    if (err){
-      console.log(err);
-    } else {
-      console.log("================\n",JSON.stringify(res, null, 2));
-    }
-  });
-
-}
+// /**
+//  * [processImage send the given image file to Watson Vision Recognition for Analysis]
+//  * @param  {[type]} imagefile [description]
+//  * @return {[type]}           [description]
+//  */
+// function processImage(imagefile){
+//   var params = {
+//     images_file: fs.createReadStream(imagefile)
+//   };
+//
+//   visual_recognition.classify(params, function(err, res) {
+//     if (err){
+//       console.log(err);
+//     } else {
+//       console.log("================\n",JSON.stringify(res, null, 2));
+//     }
+//   });
+//
+// }
