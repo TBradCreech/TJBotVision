@@ -8,6 +8,7 @@ var watson = require('watson-developer-cloud');
 var fs = require('fs');
 var RaspiCam = require("raspicam");
 var config = require("./config");
+var childprocess = require('child_process');
 
 var visual_recognition = new VisualRecognitionV3({
   api_key: config.VisionKey,
@@ -28,22 +29,28 @@ var snapinterval =  20000 ; // take a picture every X milliseconds
 
 var camera = new RaspiCam(options);
 
-//launchVision();
+// setInterval(function () {
+//   launchVision()
+// }, snapinterval);
+
+launchVision();
+
 /**
- * Process Images every X seconds
- * @return {null} null
- */
+* Process Images every X seconds
+* @return {null} null
+*/
 function launchVision(){
-  setInterval(function () {
-    //to take a snapshot, start a timelapse or video recording
-    camera.start();
-    //listen for the "read" event triggered when each new photo/video is saved
-    camera.on("read", function(err, filename){
-      //do stuff
-      console.log("image saved ", filename)
-      processImage("shot.jpg")
-    });
-  }, snapinterval);
+
+  var filename = 'photos/pic_'+i+'.jpg';
+   var args = ['-w', '320', '-h', '240', '-o', filename, '-t', '1'];
+   var spawn = child_process.spawn('raspistill', args);
+
+   spawn.on('exit', function(code) {
+     console.log('A photo is saved as '+filename+ ' with exit code, ' + code);
+     let timestamp = Date.now();
+     i++;
+   });
+
 }
 
 processImage("shot.jpg")
@@ -73,7 +80,7 @@ function processImage(imagefile){
         console.log(resultstring)
         speak(resultstring);
       }else {
-        resultstring = "I could not understand that image. Try anoter?"
+        resultstring = "I could not understand that image. Try another?"
         console.log(resultstring)
         speak(resultstring);
       }
