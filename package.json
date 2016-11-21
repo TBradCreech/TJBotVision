@@ -4,6 +4,7 @@
   "description": "Recipe to make your tjbot analyze images it sees",
   "main": "tjvision.js",
   "dependencies": {
+    "node-aplay": "^1.0.3",
     "npm": "^4.0.2",
     "raspicam": "^0.2.13",
     "watson-developer-cloud": "^2.9.0"
