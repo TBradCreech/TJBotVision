@@ -16,10 +16,10 @@ var visual_recognition = new VisualRecognitionV3({
 // Setup image options- height, width, rotation etc.
 var options = {
   mode: "photo",
-  w: 1920,
-  h: 1080,
+  w: 960,
+  h: 540,
   rot: 180,
-  q: 100,
+  q: 80,
   output: "shot.jpg"
 }
 
@@ -32,8 +32,8 @@ camera.start();
 //listen for the "read" event triggered when each new photo/video is saved
 camera.on("read", function(err, filename){
   //do stuff
-  console.log("image saved")
-  processImage("shot.jpg")
+  console.log("image saved ", filename)
+  //processImage("shot.jpg")
 });
 
 /**
