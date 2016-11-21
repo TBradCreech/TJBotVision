@@ -62,6 +62,10 @@ camera.on("read", function(err, filename){
 
          console.log(resultstring)
          speak(resultstring);
+       }else {
+         result = "I could not understand that image. Try anoter?"
+         console.log(resultstring)
+         speak(resultstring);
        }
        //console.log("================\n",JSON.stringify(result), null, 2));
      }
