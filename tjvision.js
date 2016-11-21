@@ -4,6 +4,7 @@
 */
 
 var VisualRecognitionV3 = require('watson-developer-cloud/visual-recognition/v3');
+var watson = require('watson-developer-cloud');
 var fs = require('fs');
 var RaspiCam = require("raspicam");
 var config = require("./config");
