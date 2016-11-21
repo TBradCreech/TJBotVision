@@ -6,7 +6,6 @@
 var VisualRecognitionV3 = require('watson-developer-cloud/visual-recognition/v3');
 var watson = require('watson-developer-cloud');
 var fs = require('fs');
-var RaspiCam = require("raspicam");
 var config = require("./config");
 var child_process = require('child_process');
 
@@ -15,20 +14,10 @@ var visual_recognition = new VisualRecognitionV3({
   version_date: config.VisionVersion
 });
 
-// Setup image options- height, width, rotation etc.
-var options = {
-  mode: "photo",
-  w: 960,
-  h: 540,
-  rot: 180,
-  q: 80,
-  output: "shot.jpg"
-}
+
 
 var snapinterval =  20000 ; // take a picture every X milliseconds
 var i = 0 ;
-var camera = new RaspiCam(options);
-
 // setInterval(function () {
 //   launchVision()
 // }, snapinterval);
@@ -64,7 +53,7 @@ function processImage(imagefile){
     images_file: fs.createReadStream(imagefile)
   };
 
-  var resultstring = "Objects in the image are: " ;
+  var resultstring = "Objects in the image are " ;
 
   visual_recognition.classify(params, function(err, res) {
     if (err){
@@ -74,7 +63,7 @@ function processImage(imagefile){
       if(result !== null & result.length > 0){
         result.forEach(function(obj){
           console.log(obj.class)
-          resultstring = resultstring + obj.class + ", "
+          resultstring = resultstring + ", " + obj.class 
         })
 
         console.log(resultstring)

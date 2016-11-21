@@ -6,13 +6,15 @@
 var VisualRecognitionV3 = require('watson-developer-cloud/visual-recognition/v3');
 var fs = require('fs');
 var config = require("./config");
+var watson = require('watson-developer-cloud');
+var exec = require('child_process').exec;
 
 var visual_recognition = new VisualRecognitionV3({
   api_key: config.VisionKey,
   version_date: config.VisionVersion
 });
 
-processImage("shot.jpg")
+//processImage("shot.jpg")
 /**
  * [processImage send the given image file to Watson Vision Recognition for Analysis]
  * @param  {[type]} imagefile [description]
@@ -45,14 +47,13 @@ function processImage(imagefile){
 }
 
 
-var Sound = require('node-aplay');
-var music ;
+
 var text_to_speech = watson.text_to_speech({
   username: config.TTSUsername,
   password: config.TTSPassword,
   version: 'v1'
 });
-
+speak("Bingo is a mean dog")
 function speak(textstring){
   var params = {
     text: textstring,
@@ -60,11 +61,8 @@ function speak(textstring){
     accept: 'audio/wav'
   };
   text_to_speech.synthesize(params).pipe(fs.createWriteStream('output.wav')).on('close', function() {
-    // var create_audio = exec('ffplay -autoexit output.wav', function (error, stdout, stderr) { // if on mac
-    music = new Sound("output.wav");
-    music.play();
-    music.on('complete', function () {
-      console.log('Done with playback!');
-    });
+    var create_audio = exec('ffplay -autoexit output.wav', function (error, stdout, stderr) {
+    }) // if on mac
+
   });
 }
