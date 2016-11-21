@@ -24,11 +24,11 @@ var options = {
   output: "shot.jpg"
 }
 
-var snapinterval =  10000 ; // take a picture every X milliseconds
+var snapinterval =  20000 ; // take a picture every X milliseconds
 
 var camera = new RaspiCam(options);
 
-launchVision();
+//launchVision();
 /**
  * Process Images every X seconds
  * @return {null} null
@@ -46,6 +46,7 @@ function launchVision(){
   }, snapinterval);
 }
 
+processImage("shot.jpg")
 /**
 * [processImage send the given image file to Watson Vision Recognition for Analysis]
 * @param  {[type]} imagefile [description]
