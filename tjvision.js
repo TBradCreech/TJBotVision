@@ -19,8 +19,7 @@ var options = {
   w: 960,
   h: 540,
   rot: 180,
-  q: 80,
-  output: "shot.jpg"
+  q: 80 
 }
 
 var snapinterval =  3000 ; // take a picture every X milliseconds
