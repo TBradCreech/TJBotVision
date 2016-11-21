@@ -28,7 +28,11 @@ var snapinterval =  10000 ; // take a picture every X milliseconds
 
 var camera = new RaspiCam(options);
 
-
+launchVision();
+/**
+ * Process Images every X seconds
+ * @return {null} null
+ */
 function launchVision(){
   setInterval(function () {
     //to take a snapshot, start a timelapse or video recording
