@@ -26,7 +26,7 @@ var options = {
 }
 
 var snapinterval =  20000 ; // take a picture every X milliseconds
-
+var i = 0 ;
 var camera = new RaspiCam(options);
 
 // setInterval(function () {
