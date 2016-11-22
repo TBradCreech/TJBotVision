@@ -37,12 +37,13 @@ function launchVision(){
    spawn.on('exit', function(code) {
      console.log('A photo is saved as '+filename+ ' with exit code, ' + code);
      let timestamp = Date.now();
+     processImage(filename)
      i++;
    });
 
 }
 
-processImage("shot.jpg")
+
 /**
 * [processImage send the given image file to Watson Vision Recognition for Analysis]
 * @param  {[type]} imagefile [description]
@@ -63,7 +64,7 @@ function processImage(imagefile){
       if(result !== null & result.length > 0){
         result.forEach(function(obj){
           console.log(obj.class)
-          resultstring = resultstring + ", " + obj.class 
+          resultstring = resultstring + ", " + obj.class
         })
 
         console.log(resultstring)

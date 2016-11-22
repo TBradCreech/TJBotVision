@@ -7,14 +7,25 @@ Make your TJBot process images using Vision Recognition
 - Get a text description back from Watson Vision Recognition
 - Do stuff.
 
-# Installation
+## Installation
 
 Install Dependencies
 
     npm install
+    # try sudo npm install if you encounter permission issues
 
-Rename the config_sample.js file to config.js. Open config.js using your favorite text editor (e.g nano) and update it with your Bluemix credentials for the Watson services you use.
+Rename and update config.js
 
     cp config_sample.js config.js
     nano config.js
-    # enter your watson usernames, passwords and versions.
+
+    # Rename the config_sample.js file to config.js. Open config.js using your favorite text editor # (e.g // nano) and update it with your Bluemix credentials for the Watson services you use.
+
+
+Enable camera
+
+    sudo raspi-config
+    # Go to option 5 "Enable Camera" and select yes
+
+## License
+MIT License
