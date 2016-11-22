@@ -31,7 +31,8 @@ launchVision();
 function launchVision(){
 
   var filename = 'photos/pic_'+i+'.jpg';
-   var args = ['-vf', '-hf','-w', '960', '-h', '720', '-o', filename, '-t', '1'];
+   //var args = ['-vf', '-hf','-w', '960', '-h', '720', '-o', filename, '-t', '1'];
+   var args = ['-w', '960', '-h', '720', '-o', filename, '-t', '1'];
    var spawn = child_process.spawn('raspistill', args);
 
    spawn.on('exit', function(code) {
