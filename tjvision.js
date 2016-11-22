@@ -89,7 +89,6 @@ var text_to_speech = watson.text_to_speech({
   version: 'v1'
 });
 
-speak("filepath .. I am kinda trying to test the speaking capability within this code")
 function speak(textstring){
   var params = {
     text: textstring,
