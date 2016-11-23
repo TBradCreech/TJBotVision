@@ -55,7 +55,7 @@ function processImage(imagefile){
     images_file: fs.createReadStream(imagefile)
   };
 
-  var resultstring = "Objects in the image are " ;
+  var resultstring = "The objects I see in the image are " ;
 
   visual_recognition.classify(params, function(err, res) {
     if (err){
